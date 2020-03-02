@@ -6,7 +6,7 @@ module Fastlane
   module Helper
     class PhraseappHelper
       def self.execute(command:)
-        `#{['cd ..', "#{phrase} #{command}"].join(' && ')}`
+        `#{phrase} #{command}`
       end
 
       def self.cli_exist?
