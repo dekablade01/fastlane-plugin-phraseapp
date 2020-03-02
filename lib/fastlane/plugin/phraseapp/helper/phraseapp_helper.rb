@@ -5,11 +5,16 @@ module Fastlane
 
   module Helper
     class PhraseappHelper
-      # class methods that you define here become available in your action
-      # as `Helper::PhraseappHelper.your_method`
-      #
-      def self.show_message
-        UI.message("Hello from the phraseapp plugin helper!")
+      def self.execute(command:)
+        `#{['cd ..', "#{phrase} #{command}"].join(' && ')}`
+      end
+
+      def self.cli_exist?
+        !phrase.to_s.empty?
+      end
+
+      def self.phrase
+        `which phraseapp`.gsub("\n", '')
       end
     end
   end
