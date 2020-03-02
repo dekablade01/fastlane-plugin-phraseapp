@@ -5,7 +5,8 @@ module Fastlane
   module Actions
     class PhraseappAction < Action
       def self.run(params)
-        UI.message("The phraseapp plugin is working!")
+        raise 'phraseapp-cli is not installed 💣' unless Helper::PhraseappHelper.cli_exist?
+        Helper::PhraseappHelper.execute(command: params[:command])
       end
 
       def self.description
@@ -27,11 +28,11 @@ module Fastlane
 
       def self.available_options
         [
-          # FastlaneCore::ConfigItem.new(key: :your_option,
-          #                         env_name: "PHRASEAPP_YOUR_OPTION",
-          #                      description: "A description of your option",
-          #                         optional: false,
-          #                             type: String)
+          FastlaneCore::ConfigItem.new(key: :command,
+                                  env_name: "PHRASEAPP_COMMAND",
+                               description: "Arguments will be passed to Phraseapp CLI",
+                                  optional: false,
+                                      type: String)
         ]
       end
 
