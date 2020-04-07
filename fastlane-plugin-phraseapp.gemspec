@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'dekablade01@gmail.com'
 
   spec.summary       = 'a phraseapp-cli tool wrapper'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-phraseapp"
+  spec.homepage      = "https://github.com/dekablade01/fastlane-plugin-phraseapp"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
